@@ -4,8 +4,6 @@ const elements = {
     feedback: $("feedback"),
     next: $("next"),
     options: $("options"),
-    pathwayButtons: $("pathway-buttons"),
-    pathwaySelect: $("pathway-selection"),
     questionCount: $("question-count"),
     questionCurrent: $("question-current"),
     questionSlider: $("question-slider"),
@@ -14,10 +12,12 @@ const elements = {
     results: $("results"),
     retry: $("retry"),
     score: $("score"),
-    start: $("start")
+    start: $("start"),
+    subjectButtons: $("subject-buttons"),
+    subjectSelect: $("subject-selection")
 };
 
-let selectedPathways = [];
+let selectedSubjects = [];
 let currentQuestion = null;
 let score = 0;
 let questionNumber = 0;

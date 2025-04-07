@@ -121,7 +121,7 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-#pathway-buttons {
+#subject-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -129,8 +129,8 @@ input[type="range"]::-moz-range-thumb {
     margin-bottom: 50px;
 }
 
-.pathway-button {
-    padding: 8px 16px;
+.subject-button {
+    padding: 8px;
     font-size: 1.2em;
     cursor: pointer;
     border-radius: 8px;
@@ -140,13 +140,13 @@ input[type="range"]::-moz-range-thumb {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.pathway-button:hover {
+.subject-button:hover {
     background-color: #009688;
     color: white;
     transform: scale(1.05);
 }
 
-.pathway-button.selected {
+.subject-button.selected {
     background-color: #00AD9C;
     color: white;
     border: 2px solid #00AD9C;
