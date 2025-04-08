@@ -24,31 +24,20 @@ const updateQuestionNumber = () => {
 };
 
 const generateIncorrectOptions = (correct, property) => {
-    const incorrect = new Set();
     const allAnswers = new Set();
     selectedSubjects.forEach((p) => {
         const subdata = data[p];
-        if (p === "aminoAcids") {
-            for (const key in subdata) {
-                if (key !== "name" && subdata[key][property] !== undefined) {
-                    allAnswers.add(subdata[key][property]);
-                }
-            }
-        } else {
-            for (const key in subdata) {
-                if (key.startsWith("step") && subdata[key][property]) {
-                    allAnswers.add(subdata[key][property]);
-                }
-                if (key.startsWith("step") && subdata[key]["substrate"] && property === "byproduct") {
-                    allAnswers.add(subdata[key]["substrate"]);
-                }
-                if (key.startsWith("step") && subdata[key]["byproduct"] && property === "substrate") {
-                    allAnswers.add(subdata[key]["byproduct"]);
-                }
+        for (const key in subdata) {
+            if (subdata[key][property] !== undefined) {
+                allAnswers.add(subdata[key][property]);
             }
         }
     });
+    if (allAnswers.size <= 3) {
+        return Array.from(allAnswers).filter((answer) => answer !== correct);
+    }
     allAnswers.delete(correct);
+    const incorrect = new Set();
     while (incorrect.size < 3 && allAnswers.size > incorrect.size) {
         const random = Array.from(allAnswers)[Math.floor(Math.random() * allAnswers.size)];
         incorrect.add(random);
@@ -69,7 +58,7 @@ const generateQuestion = () => {
         if (randomSubject === "aminoAcids") {
             keys = Object.keys(subdata).filter((k) => k !== "name");
         } else {
-            keys = Object.keys(subdata).filter((k) => k.startsWith("step"));
+            keys = Object.keys(subdata).filter((k) => k.startsWith("step") || k.startsWith("mode"));
         }
         if (!keys.length) return null;
 
@@ -77,7 +66,9 @@ const generateQuestion = () => {
         const itemData = subdata[randomKey];
         let availableProps = [];
         if (randomSubject === "aminoAcids") {
-            availableProps = ["threeLetter", "oneLetter", "polar", "hydrophobic", "charged", "acidic"];
+            availableProps = ["three", "one", "polar", "hydrophobic", "charged", "acidic"];
+        } else if (randomSubject === "pentosePhosphatePathway" && randomKey.startsWith("mode")) {
+            availableProps = ["reactant", "product", "phase", "pathway"];
         } else {
             ["reactant", "product", "enzyme", "substrate", "byproduct", "type", "reversible"].forEach((prop) => {
                 if (itemData[prop] !== undefined) {
@@ -93,20 +84,36 @@ const generateQuestion = () => {
             let correct = "";
             if (randomSubject === "aminoAcids") {
                 const formattedName = itemData.name.toLowerCase();
-                if (prop === "threeLetter") {
+                if (prop === "three") {
                     question = `What is the three-letter code for ${formattedName}?`;
-                    correct = itemData.threeLetter;
-                } else if (prop === "oneLetter") {
+                    correct = itemData.three;
+                } else if (prop === "one") {
                     question = `What is the one-letter code for ${formattedName}?`;
-                    correct = itemData.oneLetter;
+                    correct = itemData.one;
                 } else if (["polar", "hydrophobic", "charged", "acidic"].includes(prop)) {
                     question = `Is ${formattedName} ${prop}?`;
                     correct = itemData[prop] ? "Yes" : "No";
                 }
+            } else if (randomSubject === "pentosePhosphatePathway" && randomKey.startsWith("mode")) {
+                const modeNumber = randomKey.slice(4);
+                const description = itemData.description.charAt(0).toLowerCase() + itemData.description.slice(1);
+                if (prop === "reactant") {
+                    question = `What is the reactant in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    correct = itemData.reactant;
+                } else if (prop === "product") {
+                    question = `What is the product in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    correct = itemData.product;
+                } else if (prop === "phase") {
+                    question = `What is the phase in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    correct = itemData.phase;
+                } else if (prop === "pathway") {
+                    question = `What is the pathway in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    correct = itemData.pathway;
+                }
             } else {
                 const number = parseInt(randomKey.slice(4));
                 const subjectName = subdata.name ? subdata.name.toLowerCase() : randomSubject.toLowerCase();
-                const formattedSubjectName = subjectName === "citric acid cycle" ? `the ${subjectName}` : subjectName;
+                const formattedSubjectName = subjectName === "citric acid cycle" || "pentose phosphate pathway" ? `the ${subjectName}` : subjectName;
                 if (prop === "enzyme") {
                     question = `What is the enzyme that catalyzes step ${number} of ${formattedSubjectName}?`;
                     correct = itemData.enzyme;

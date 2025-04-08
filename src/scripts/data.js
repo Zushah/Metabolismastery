@@ -3,8 +3,8 @@ const data = {
         name: "Amino Acids",
         alanine: {
             name: "Alanine",
-            threeLetter: "Ala",
-            oneLetter: "A",
+            three: "Ala",
+            one: "A",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -12,8 +12,8 @@ const data = {
         },
         arginine: {
             name: "Arginine",
-            threeLetter: "Arg",
-            oneLetter: "R",
+            three: "Arg",
+            one: "R",
             polar: false,
             hydrophobic: false,
             charged: true,
@@ -21,8 +21,8 @@ const data = {
         },
         asparagine: {
             name: "Asparagine",
-            threeLetter: "Asn",
-            oneLetter: "N",
+            three: "Asn",
+            one: "N",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -30,8 +30,8 @@ const data = {
         },
         aspartate: {
             name: "Aspartate",
-            threeLetter: "Asp",
-            oneLetter: "D",
+            three: "Asp",
+            one: "D",
             polar: false,
             hydrophobic: false,
             charged: true,
@@ -39,8 +39,8 @@ const data = {
         },
         cysteine: {
             name: "Cysteine",
-            threeLetter: "Cys",
-            oneLetter: "C",
+            three: "Cys",
+            one: "C",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -48,8 +48,8 @@ const data = {
         },
         glutamate: {
             name: "Glutamate",
-            threeLetter: "Glu",
-            oneLetter: "E",
+            three: "Glu",
+            one: "E",
             polar: false,
             hydrophobic: false,
             charged: true,
@@ -57,8 +57,8 @@ const data = {
         },
         glutamine: {
             name: "Glutamine",
-            threeLetter: "Gln",
-            oneLetter: "Q",
+            three: "Gln",
+            one: "Q",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -66,8 +66,8 @@ const data = {
         },
         glycine: {
             name: "Glycine",
-            threeLetter: "Gly",
-            oneLetter: "G",
+            three: "Gly",
+            one: "G",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -75,8 +75,8 @@ const data = {
         },
         histidine: {
             name: "Histidine",
-            threeLetter: "His",
-            oneLetter: "H",
+            three: "His",
+            one: "H",
             polar: false,
             hydrophobic: false,
             charged: true,
@@ -84,8 +84,8 @@ const data = {
         },
         isoleucine: {
             name: "Isoleucine",
-            threeLetter: "Ile",
-            oneLetter: "I",
+            three: "Ile",
+            one: "I",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -93,8 +93,8 @@ const data = {
         },
         leucine: {
             name: "Leucine",
-            threeLetter: "Leu",
-            oneLetter: "L",
+            three: "Leu",
+            one: "L",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -102,8 +102,8 @@ const data = {
         },
         lysine: {
             name: "Lysine",
-            threeLetter: "Lys",
-            oneLetter: "K",
+            three: "Lys",
+            one: "K",
             polar: false,
             hydrophobic: false,
             charged: true,
@@ -111,8 +111,8 @@ const data = {
         },
         methionine: {
             name: "Methionine",
-            threeLetter: "Met",
-            oneLetter: "M",
+            three: "Met",
+            one: "M",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -120,8 +120,8 @@ const data = {
         },
         phenylalanine: {
             name: "Phenylalanine",
-            threeLetter: "Phe",
-            oneLetter: "F",
+            three: "Phe",
+            one: "F",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -129,8 +129,8 @@ const data = {
         },
         proline: {
             name: "Proline",
-            threeLetter: "Pro",
-            oneLetter: "P",
+            three: "Pro",
+            one: "P",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -138,8 +138,8 @@ const data = {
         },
         serine: {
             name: "Serine",
-            threeLetter: "Ser",
-            oneLetter: "S",
+            three: "Ser",
+            one: "S",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -147,8 +147,8 @@ const data = {
         },
         threonine: {
             name: "Threonine",
-            threeLetter: "Thr",
-            oneLetter: "T",
+            three: "Thr",
+            one: "T",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -156,8 +156,8 @@ const data = {
         },
         tryptophan: {
             name: "Tryptophan",
-            threeLetter: "Trp",
-            oneLetter: "W",
+            three: "Trp",
+            one: "W",
             polar: false,
             hydrophobic: true,
             charged: false,
@@ -165,8 +165,8 @@ const data = {
         },
         tyrosine: {
             name: "Tyrosine",
-            threeLetter: "Tyr",
-            oneLetter: "Y",
+            three: "Tyr",
+            one: "Y",
             polar: true,
             hydrophobic: false,
             charged: false,
@@ -174,96 +174,12 @@ const data = {
         },
         valine: {
             name: "Valine",
-            threeLetter: "Val",
-            oneLetter: "V",
+            three: "Val",
+            one: "V",
             polar: false,
             hydrophobic: true,
             charged: false,
             acidic: false
-        }
-    },
-    glycolysis: {
-        name: "Glycolysis",
-        step1: {
-            reactant: "Glucose",
-            product: "Glucose 6-phosphate",
-            enzyme: "Hexokinase",
-            substrate: "ATP",
-            byproduct: "ADP",
-            type: "Phosphoryl transfer",
-            reversible: false
-        },
-        step2: {
-            reactant: "Glucose 6-phosphate",
-            product: "Fructose 6-phosphate",
-            enzyme: "Phosphoglucose isomerase",
-            type: "Isomerization",
-            reversible: true
-        },
-        step3: {
-            reactant: "Fructose 6-phosphate",
-            product: "Fructose 1,6-bisphosphate",
-            enzyme: "Phosphofructokinase-1",
-            substrate: "ATP",
-            byproduct: "ADP",
-            type: "Phosphoryl transfer",
-            reversible: false
-        },
-        step4: {
-            reactant: "Fructose 1,6-bisphosphate",
-            product: "Dihydroxyacetone phosphate and Glyceraldehyde 3-phosphate",
-            enzyme: "Aldolase",
-            type: "Aldol cleavage",
-            reversible: true
-        },
-        step5: {
-            reactant: "Dihydroxyacetone phosphate or Glyceraldehyde 3-phosphate",
-            product: "Dihydroxyacetone phosphate or Glyceraldehyde 3-phosphate",
-            enzyme: "Triose phosphate isomerase",
-            type: "Isomerization",
-            reversible: true
-        },
-        step6: {
-            reactant: "Glyceraldehyde 3-phosphate",
-            product: "1,3-Bisphosphoglycerate",
-            enzyme: "Glyceraldehyde 3-phosphate dehydrogenase",
-            substrate: "NAD+",
-            byproduct: "NADH",
-            type: "Oxidation",
-            reversible: true
-        },
-        step7: {
-            reactant: "1,3-Bisphosphoglycerate",
-            product: "3-Phosphoglycerate",
-            enzyme: "Phosphoglycerate kinase",
-            substrate: "ADP",
-            byproduct: "ATP",
-            type: "Substrate-level phosphorylation",
-            reversible: true
-        },
-        step8: {
-            reactant: "3-Phosphoglycerate",
-            product: "2-Phosphoglycerate",
-            enzyme: "Phosphoglycerate mutase",
-            type: "Phosphoryl shift",
-            reversible: true
-        },
-        step9: {
-            reactant: "2-Phosphoglycerate",
-            product: "Phosphoenolpyruvate",
-            enzyme: "Enolase",
-            byproduct: "H2O",
-            type: "Dehydration",
-            reversible: true
-        },
-        step10: {
-            reactant: "Phosphoenolpyruvate",
-            product: "Pyruvate",
-            enzyme: "Pyruvate kinase",
-            substrate: "ADP",
-            byproduct: "ATP",
-            type: "Substrate-level phosphorylation",
-            reversible: false
         }
     },
     citricAcidCycle: {
@@ -417,6 +333,192 @@ const data = {
             enzyme: "Glucose 6-phosphatase",
             type: "Hydrolysis",
             reversible: false
+        }
+    },
+    glycolysis: {
+        name: "Glycolysis",
+        step1: {
+            reactant: "Glucose",
+            product: "Glucose 6-phosphate",
+            enzyme: "Hexokinase",
+            substrate: "ATP",
+            byproduct: "ADP",
+            type: "Phosphoryl transfer",
+            reversible: false
+        },
+        step2: {
+            reactant: "Glucose 6-phosphate",
+            product: "Fructose 6-phosphate",
+            enzyme: "Phosphoglucose isomerase",
+            type: "Isomerization",
+            reversible: true
+        },
+        step3: {
+            reactant: "Fructose 6-phosphate",
+            product: "Fructose 1,6-bisphosphate",
+            enzyme: "Phosphofructokinase-1",
+            substrate: "ATP",
+            byproduct: "ADP",
+            type: "Phosphoryl transfer",
+            reversible: false
+        },
+        step4: {
+            reactant: "Fructose 1,6-bisphosphate",
+            product: "Dihydroxyacetone phosphate and glyceraldehyde 3-phosphate",
+            enzyme: "Aldolase",
+            type: "Aldol cleavage",
+            reversible: true
+        },
+        step5: {
+            reactant: "Dihydroxyacetone phosphate or glyceraldehyde 3-phosphate",
+            product: "Dihydroxyacetone phosphate or glyceraldehyde 3-phosphate",
+            enzyme: "Triose phosphate isomerase",
+            type: "Isomerization",
+            reversible: true
+        },
+        step6: {
+            reactant: "Glyceraldehyde 3-phosphate",
+            product: "1,3-Bisphosphoglycerate",
+            enzyme: "Glyceraldehyde 3-phosphate dehydrogenase",
+            substrate: "NAD+",
+            byproduct: "NADH",
+            type: "Oxidation",
+            reversible: true
+        },
+        step7: {
+            reactant: "1,3-Bisphosphoglycerate",
+            product: "3-Phosphoglycerate",
+            enzyme: "Phosphoglycerate kinase",
+            substrate: "ADP",
+            byproduct: "ATP",
+            type: "Substrate-level phosphorylation",
+            reversible: true
+        },
+        step8: {
+            reactant: "3-Phosphoglycerate",
+            product: "2-Phosphoglycerate",
+            enzyme: "Phosphoglycerate mutase",
+            type: "Phosphoryl shift",
+            reversible: true
+        },
+        step9: {
+            reactant: "2-Phosphoglycerate",
+            product: "Phosphoenolpyruvate",
+            enzyme: "Enolase",
+            byproduct: "H2O",
+            type: "Dehydration",
+            reversible: true
+        },
+        step10: {
+            reactant: "Phosphoenolpyruvate",
+            product: "Pyruvate",
+            enzyme: "Pyruvate kinase",
+            substrate: "ADP",
+            byproduct: "ATP",
+            type: "Substrate-level phosphorylation",
+            reversible: false
+        }
+    },
+    pentosePhosphatePathway: {
+        name: "Pentose Phosphate Pathway",
+        step1: {
+            reactant: "Glucose 6-phosphate",
+            product: "6-Phosphoglucono-δ-lactone",
+            enzyme: "Glucose 6-phosphate dehydrogenase",
+            substrate: "NADP+",
+            byproduct: "NADPH",
+            type: "Oxidation",
+            oxidativePhase: true,
+            reversible: false
+        },
+        step2: {
+            reactant: "6-Phosphoglucono-δ-lactone",
+            product: "6-Phosphogluconate",
+            enzyme: "Lactonase",
+            substrate: "H2O",
+            type: "Hydrolysis",
+            oxidativePhase: true,
+            reversible: true
+        },
+        step3: {
+            reactant: "6-Phosphogluconate",
+            product: "Ribulose 5-phosphate",
+            enzyme: "6-Phosphogluconate dehydrogenase",
+            substrate: "NADP+",
+            byproduct: "NADPH and CO2",
+            type: "Oxidation and decarboxylation",
+            oxidativePhase: true,
+            reversible: false
+        },
+        step4: {
+            reactant: "Ribulose 5-phosphate",
+            product: "Ribose 5-phosphate",
+            enzyme: "Phosphopentose isomerase",
+            type: "Isomerization",
+            oxidativePhase: false,
+            reversible: true
+        },
+        step5: {
+            reactant: "Ribulose 5-phosphate",
+            product: "Xylulose 5-phosphate",
+            enzyme: "Phosphopentose epimerase",
+            type: "Epimerization",
+            oxidativePhase: false,
+            reversible: true
+        },
+        step6: {
+            reactant: "Ribose 5-phosphate and xylulose 5-phosphate",
+            product: "Glyceraldehyde 3-phosphate and sedoheptulose 7-phosphate",
+            enzyme: "Transketolase",
+            substrate: "Thiamine pyrophosphate (TPP)",
+            type: "Carbon transfer",
+            oxidativePhase: false,
+            reversible: true
+        },
+        step7: {
+            reactant: "Sedoheptulose 7-phosphate and glyceraldehyde 3-phosphate",
+            product: "Erythrose 4-phosphate and fructose 6-phosphate",
+            enzyme: "Transaldolase",
+            type: "Carbon transfer",
+            oxidativePhase: false,
+            reversible: true
+        },
+        step8: {
+            reactant: "Erythrose 4-phosphate and xylulose 5-phosphate",
+            product: "Glyceraldehyde 3-phosphate and fructose 6-phosphate",
+            enzyme: "Transketolase",
+            substrate: "Thiamine pyrophosphate",
+            type: "Carbon transfer",
+            oxidativePhase: false,
+            reversible: true
+        },
+        mode1: {
+            description: "The ribose 5-phosphate needs exceed the needs for NADPH",
+            reactant: "Fructose 6-phosphate and glyceraldehyde 3-phosphate",
+            product: "Ribose 5-phosphate",
+            phase: "Nonoxidative",
+            pathway: "Glycolysis to pentose phosphate pathway"
+        },
+        mode2: {
+            description: "The NADPH and ribose 5-phosphate needs are balanced",
+            reactant: "Glucose 6-phosphate",
+            product: "NADPH and ribose 5-phosphate",
+            phase: "Oxidative",
+            pathway: "Pentose phosphate pathway"
+        },
+        mode3: {
+            description: "More NADPH is needed than ribose 5-phosphate",
+            reactant: "Glucose 6-phosphate",
+            product: "NADPH and glycolytic intermediates",
+            phase: "Oxidative and nonoxidative",
+            pathway: "Pentose phosphate pathway to gluconeogenesis"
+        },
+        mode4: {
+            description: "Both NADPH and ATP are required",
+            reactant: "Glucose 6-phosphate",
+            product: "NADPH, glycolytic intermediates, and ATP",
+            phase: "Oxidative and nonoxidative",
+            pathway: "Pentose phosphate pathway to glycolysis"
         }
     }
 };
