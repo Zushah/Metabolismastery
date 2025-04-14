@@ -1,4 +1,5 @@
 const main = () => {
+    loadStats();
     setupSubjectButtons();
     elements.questionSlider.addEventListener("input", () => {
         totalQuestions = parseInt(elements.questionSlider.value);
@@ -24,5 +25,17 @@ const main = () => {
         renderQuestion();
     });
     elements.retry.addEventListener("click", resetQuiz);
+    elements.statsButtons.forEach((button) => {
+        button.addEventListener("click", renderStats);
+    });
+    elements.backToMenu.addEventListener("click", resetQuiz);
+    const originalRenderQuestion = renderQuestion;
+    renderQuestion = () => {
+        if (questionNumber >= totalQuestions) {
+            stats.totalQuizzes++;
+            saveStats();
+        }
+        originalRenderQuestion();
+    };
 }
 main();

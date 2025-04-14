@@ -25,6 +25,7 @@ Metabolismastery
                     <span id="question-count">10</span>
                 </div><br>
                 <button id="start">Start</button>
+                <button class="stats-button">My Mastery</button>
             </div>
             <div id="quiz" class="hidden">
                 <div class="quiz-header">
@@ -41,12 +42,19 @@ Metabolismastery
                 <h2>Results</h2>
                 <p id="score"></p>
                 <button id="retry">Retry</button>
+                <button class="stats-button">My Mastery</button>
+            </div>
+            <div id="mastery-section" class="hidden">
+                <h2>My Mastery</h2>
+                <div id="mastery-stats"></div>
+                <button id="back-to-menu">Back to Menu</button>
             </div>
         </div>
         <canvas id="canvas"></canvas>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Zushah/Chalkboard@2.1.0/dist/Chalkboard.min.js"></script>
-        <script text="text/javascript" src="./src/scripts/variables.js"></script>
-        <script text="text/javascript" src="./src/scripts/functions.js"></script>
+        <script type="text/javascript" src="./src/scripts/setup.js"></script>
+        <script type="text/javascript" src="./src/scripts/quiz.js"></script>
+        <script type="text/javascript" src="./src/scripts/stats.js"></script>
         <script type="text/javascript" src="./src/scripts/data.js"></script>
         <script type="text/javascript" src="./src/scripts/main.js"></script>
     </body>

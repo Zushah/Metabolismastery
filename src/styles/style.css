@@ -156,6 +156,95 @@ input[type="range"]::-moz-range-thumb {
     display: none;
 }
 
+#mastery-stats {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.subject-stat {
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.subject-stat:hover {
+    background-color: #E9E9E9;
+}
+
+.subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject-name {
+    font-weight: bold;
+    color: #00A3A0;
+}
+
+.subject-score {
+    font-weight: bold;
+}
+
+.detail-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 10px;
+}
+
+.detail-container.expanded {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-top: 1px solid #E0E0E0;
+}
+
+.detail-item:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #E0E0E0;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: #00A3A0;
+    transition: width 0.3s ease;
+}
+
+.stats-button {
+    margin-top: 10px;
+    background-color: #009688;
+}
+
+.stats-button:hover {
+    background-color: #00796B;
+}
+
+#back-to-menu {
+    background-color: #607D8B;
+}
+
+#back-to-menu:hover {
+    background-color: #455A64;
+}
+
 canvas#canvas {
     position: fixed;
     top: 0;
