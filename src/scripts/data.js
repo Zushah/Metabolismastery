@@ -355,6 +355,88 @@ const data = {
             reversible: false
         }
     },
+    glycogenesis: {
+        name: "Glycogenesis",
+        step1: {
+            reactant: "Glucose",
+            product: "Glucose 6-phosphate",
+            enzyme: "Hexokinase",
+            substrate: "ATP",
+            byproduct: "ADP",
+            type: "Phosphoryl transfer",
+            reversible: false
+        },
+        step2: {
+            reactant: "Glucose 6-phosphate",
+            product: "Glucose 1-phosphate",
+            enzyme: "Phosphoglucomutase",
+            type: "Phosphoryl shift",
+            reversible: true
+        },
+        step3: {
+            reactant: "Glucose 1-phosphate",
+            product: "UDP-glucose",
+            enzyme: "UDP-glucose pyrophosphorylase",
+            substrate: "UTP",
+            byproduct: "PPi",
+            type: "Nucleotide transfer",
+            reversible: false
+        },
+        step4: {
+            reactant: "UDP-glucose",
+            product: "Glycogen",
+            enzyme: "Glycogen synthase",
+            substrate: "Glycogenin",
+            byproduct: "UDP",
+            type: "Glycosyl transfer",
+            reversible: false
+        },
+        step5: {
+            reactant: "Glycogen",
+            product: "Branched glycogen",
+            enzyme: "Branching enzyme",
+            type: "Glycosyl transfer",
+            reversible: false
+        }
+    },
+    glycogenolysis: {
+        name: "Glycogenolysis",
+        step1: {
+            reactant: "Glycogen",
+            product: "Glucose 1-phosphate",
+            enzyme: "Glycogen phosphorylase",
+            type: "Phosphoryl cleavage",
+            reversible: false
+        },
+        step2: {
+            reactant: "Branched glycogen",
+            product: "Linear glycogen",
+            enzyme: "Debranching enzyme (transferase activity)",
+            type: "Glucosyl transfer",
+            reversible: false
+        },
+        step3: {
+            reactant: "Branch-point glucose",
+            product: "Glucose",
+            enzyme: "Debranching enzyme (glucosidase activity)",
+            type: "Hydrolysis",
+            reversible: false
+        },
+        step4: {
+            reactant: "Glucose 1-phosphate",
+            product: "Glucose 6-phosphate",
+            enzyme: "Phosphoglucomutase",
+            type: "Phosphoryl shift",
+            reversible: true
+        },
+        step5: {
+            reactant: "Glucose 6-phosphate",
+            product: "Glucose",
+            enzyme: "Glucose 6-phosphatase",
+            type: "Hydrolysis",
+            reversible: false
+        }
+    },
     glycolysis: {
         name: "Glycolysis",
         step1: {
