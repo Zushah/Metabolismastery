@@ -117,26 +117,57 @@ const generateQuestion = () => {
                 const number = parseInt(randomKey.slice(4));
                 const subjectName = subdata.name ? subdata.name.toLowerCase() : randomSubject.toLowerCase();
                 const formattedSubjectName = (subjectName === "citric acid cycle" || subjectName === "pentose phosphate pathway") ? `the ${subjectName}` : subjectName;
+                const reactant = itemData.reactant ? itemData.reactant.charAt(0).toLowerCase() + itemData.reactant.slice(1) : "";
+                const product = itemData.product ? itemData.product.charAt(0).toLowerCase() + itemData.product.slice(1) : "";
+                const reactionDetail = (reactant && product) ? ` of ${reactant} to form ${product}` : "";
                 if (prop === "enzyme") {
-                    question = `What is the enzyme that catalyzes step ${number} of ${formattedSubjectName}?`;
+                    if (reactionDetail) {
+                        question = `What is the enzyme that catalyzes the reaction${reactionDetail} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the enzyme that catalyzes step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.enzyme;
                 } else if (prop === "reactant") {
-                    question = `What is the reactant consumed in step ${number} of ${formattedSubjectName}?`;
+                    if (product) {
+                        question = `What is the reactant consumed to form ${product} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the reactant consumed in step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.reactant;
                 } else if (prop === "product") {
-                    question = `What is the product generated in step ${number} of ${formattedSubjectName}?`;
+                    if (reactant) {
+                        question = `What is the product formed from ${reactant} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the product formed in step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.product;
                 } else if (prop === "substrate") {
-                    question = `What is the substrate used in step ${number} of ${formattedSubjectName}?`;
+                    if (product) {
+                        question = `What is the substrate used to form ${product} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the substrate used in step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.substrate;
                 } else if (prop === "byproduct") {
-                    question = `What is the byproduct produced in step ${number} of ${formattedSubjectName}?`;
+                    if (reactionDetail) {
+                        question = `What is the byproduct released by the formation of ${product} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the byproduct released in step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.byproduct;
                 } else if (prop === "type") {
-                    question = `What is the reaction type of step ${number} of ${formattedSubjectName}?`;
+                    if (reactionDetail) {
+                        question = `What is the type of the reaction${reactionDetail} in step ${number} of ${formattedSubjectName}?`;
+                    } else {
+                        question = `What is the reaction type of step ${number} of ${formattedSubjectName}?`;
+                    }
                     correct = itemData.type;
                 } else if (prop === "reversible") {
-                    question = `Is the reaction in step ${number} of ${formattedSubjectName} reversible?`;
+                    if (reactant && product) {
+                        question = `Is the reaction of ${reactant} to form ${product} in step ${number} of ${formattedSubjectName} reversible?`;
+                    } else {
+                        question = `Is the reaction in step ${number} of ${formattedSubjectName} reversible?`;
+                    }
                     correct = itemData.reversible ? "Yes" : "No";
                 }
             }
