@@ -66,9 +66,9 @@ const generateQuestion = () => {
         const itemData = subdata[randomKey];
         let availableProps = [];
         if (randomSubject === "aminoAcids") {
-            availableProps = ["three", "one", "polar", "hydrophobic", "charged", "acidic"];
+            availableProps = ["three", "one", "sideChain", "polar", "hydrophobic", "charged", "acidic"];
         } else if (randomSubject === "pentosePhosphatePathway" && randomKey.startsWith("mode")) {
-            availableProps = ["reactant", "product", "phase", "pathway"];
+            availableProps = ["reactant", "product", "phase", "process"];
         } else {
             ["reactant", "product", "enzyme", "substrate", "byproduct", "type", "reversible"].forEach((prop) => {
                 if (itemData[prop] !== undefined) {
@@ -90,6 +90,9 @@ const generateQuestion = () => {
                 } else if (prop === "one") {
                     question = `What is the one-letter code for ${formattedName}?`;
                     correct = itemData.one;
+                } else if (prop === "sideChain") {
+                    question = `What is the side chain structure of ${formattedName}?`;
+                    correct = itemData.sideChain;
                 } else if (["polar", "hydrophobic", "charged", "acidic"].includes(prop)) {
                     question = `Is ${formattedName} ${prop}?`;
                     correct = itemData[prop] ? "Yes" : "No";
@@ -98,17 +101,17 @@ const generateQuestion = () => {
                 const modeNumber = randomKey.slice(4);
                 const description = itemData.description.charAt(0).toLowerCase() + itemData.description.slice(1);
                 if (prop === "reactant") {
-                    question = `What is the reactant in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    question = `What are the reactants in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
                     correct = itemData.reactant;
                 } else if (prop === "product") {
-                    question = `What is the product in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    question = `What are the products in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
                     correct = itemData.product;
                 } else if (prop === "phase") {
-                    question = `What is the phase in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    question = `What is the phase of mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
                     correct = itemData.phase;
-                } else if (prop === "pathway") {
-                    question = `What is the pathway in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
-                    correct = itemData.pathway;
+                } else if (prop === "process") {
+                    question = `What is the process in mode ${modeNumber} of the pentose phosphate pathway, which is activated when ${description}?`;
+                    correct = itemData.process;
                 }
             } else {
                 const number = parseInt(randomKey.slice(4));
