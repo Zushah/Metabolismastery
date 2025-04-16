@@ -776,5 +776,50 @@ const data = {
             phase: "Oxidative and nonoxidative",
             process: "Pentose phosphate pathway to glycolysis"
         }
+    },
+    ureaCycle: {
+        name: "Urea Cycle",
+        step1: {
+            reactant: "Ammonia and bicarbonate",
+            product: "Carbamoyl phosphate",
+            enzyme: "Carbamoyl phosphate synthetase I",
+            substrate: "2 ATP",
+            byproduct: "2 ADP",
+            type: "Condensation",
+            reversible: false
+        },
+        step2: {
+            reactant: "Orinthine and carbamoyl phosphate",
+            product: "Citrulline",
+            enzyme: "Ornithine transcarbamoylase",
+            byproduct: "Pi",
+            type: "Condensation",
+            reversible: false
+        },
+        step3: {
+            reactant: "Citrulline and aspartate",
+            product: "Argininosuccinate",
+            enzyme: "Argininosuccinate synthetase",
+            substrate: "ATP",
+            byproduct: "AMP",
+            type: "Condensation",
+            reversible: true
+        },
+        step4: {
+            reactant: "Argininosuccinate",
+            product: "Arginine and fumarate",
+            enzyme: "Argininosuccinate lyase",
+            substrate: "H2O",
+            type: "Hydrolysis",
+            reversible: true
+        },
+        step5: {
+            reactant: "Arginine",
+            product: "Ornithine and urea",
+            enzyme: "Arginase",
+            substrate: "H2O",
+            type: "Hydrolysis",
+            reversible: true
+        }
     }
 };

@@ -116,7 +116,7 @@ const generateQuestion = () => {
             } else {
                 const number = parseInt(randomKey.slice(4));
                 const subjectName = subdata.name ? subdata.name.toLowerCase() : randomSubject.toLowerCase();
-                const formattedSubjectName = (subjectName === "citric acid cycle" || subjectName === "pentose phosphate pathway") ? `the ${subjectName}` : subjectName;
+                const formattedSubjectName = (subjectName === "citric acid cycle" || subjectName === "pentose phosphate pathway" || subjectName === "urea cycle") ? `the ${subjectName}` : subjectName;
                 const reactant = itemData.reactant ? itemData.reactant.charAt(0).toLowerCase() + itemData.reactant.slice(1) : "";
                 const product = itemData.product ? itemData.product.charAt(0).toLowerCase() + itemData.product.slice(1) : "";
                 const reactionDetail = (reactant && product) ? ` of ${reactant} to form ${product}` : "";
