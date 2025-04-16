@@ -274,6 +274,160 @@ const data = {
             reversible: true
         }
     },
+    fattyAcidDegradation: {
+        name: "Fatty Acid Degradation",
+        step1: {
+            reactant: "Fatty acid and CoA",
+            product: "Fatty acyl-CoA",
+            enzyme: "Fatty acyl-CoA synthetase",
+            substrate: "ATP",
+            byproduct: "AMP",
+            type: "Condensation",
+            reversible: false
+        },
+        step2: {
+            reactant: "Fatty acyl-CoA",
+            product: "Fatty acylcarnitine",
+            enzyme: "Carnitine acyltransferase I",
+            substrate: "Carnitine",
+            byproduct: "CoA",
+            type: "Transport",
+            reversible: false
+        },
+        step3: {
+            reactant: "Fatty acylcarnitine",
+            product: "Fatty acyl-CoA",
+            enzyme: "Carnitine acyltransferase II",
+            substrate: "CoA",
+            byproduct: "Carnitine",
+            type: "Transport",
+            reversible: false
+        },
+        step4: {
+            reactant: "Fatty acyl-CoA",
+            product: "Trans-Δ²-enoyl-CoA",
+            enzyme: "Acyl-CoA dehydrogenase",
+            substrate: "FAD",
+            byproduct: "FADH2",
+            type: "Oxidation",
+            reversible: false
+        },
+        step5: {
+            reactant: "Trans-Δ²-enoyl-CoA",
+            product: "3-hydroxyacyl-CoA",
+            enzyme: "Enoyl-CoA hydratase",
+            substrate: "H2O",
+            type: "Hydration",
+            reversible: false
+        },
+        step6: {
+            reactant: "3-hydroxyacyl-CoA",
+            product: "β-ketoacyl-CoA",
+            enzyme: "3-hydroxyacyl-CoA dehydrogenase",
+            substrate: "NAD+",
+            byproduct: "NADH",
+            type: "Oxidation",
+            reversible: false
+        },
+        step7: {
+            reactant: "β-ketoacyl-CoA",
+            product: "Fatty acyl-CoA and acetyl-CoA",
+            enzyme: "β-ketothiolase",
+            substrate: "CoA",
+            type: "Thiolysis",
+            reversible: false
+        },
+        step8: {
+            reactant: "Fatty acyl-CoA",
+            product: "Acetyl-CoA",
+            enzyme: "Acyl-CoA dehydrogenase, enoyl-CoA hydratase, etc. (iterating steps 4-7)",
+            substrate: "FAD, H2O, NAD+, CoA (for each iteration of steps 4-7)",
+            byproduct: "FADH2, NADH (for each iteration of steps 4-7)",
+            type: "Iterative degradation",
+            reversible: false
+        }
+    },
+    fattyAcidSynthesis: {
+        name: "Fatty Acid Synthesis",
+        step1: {
+            reactant: "Citrate",
+            product: "Acetyl-CoA",
+            enzyme: "ATP-citrate lyase",
+            substrate: "ATP and CoA",
+            byproduct: "ADP and oxaloacetate",
+            type: "Phosphoryl cleavage",
+            reversible: false
+        },
+        step2: {
+            reactant: "Acetyl-CoA",
+            product: "Malonyl-CoA",
+            enzyme: "Acetyl-CoA carboxylase",
+            substrate: "ATP and HCO3-",
+            byproduct: "ADP and CO2",
+            type: "Carboxylation",
+            reversible: false
+        },
+        step3: {
+            reactant: "Acetyl-CoA and malonyl-CoA",
+            product: "Acetyl-ACP and malonyl-ACP",
+            enzyme: "Acetyl/malonyl-CoA:ACP transacylase",
+            substrate: "ACP",
+            byproduct: "CoA",
+            type: "Acyl transfer",
+            reversible: false
+        },
+        step4: {
+            reactant: "Acetyl-ACP and malonyl-ACP",
+            product: "Acetoacetyl-ACP",
+            enzyme: "Fatty acid synthase",
+            byproduct: "CO2",
+            type: "Condensation",
+            reversible: false
+        },
+        step5: {
+            reactant: "Acetoacetyl-ACP",
+            product: "3-hydroxybutyryl-ACP",
+            enzyme: "Fatty acid synthase",
+            substrate: "NADPH",
+            byproduct: "NADP+",
+            type: "Reduction",
+            reversible: false
+        },
+        step6: {
+            reactant: "3-hydroxybutyryl-ACP",
+            product: "Crotonyl-ACP",
+            enzyme: "Fatty acid synthase",
+            byproduct: "H2O",
+            type: "Dehydration",
+            reversible: false
+        },
+        step7: {
+            reactant: "Crotonyl-ACP",
+            product: "Butyryl-ACP",
+            enzyme: "Fatty acid synthase",
+            substrate: "NADPH",
+            byproduct: "NADP+",
+            type: "Reduction",
+            reversible: false
+        },
+        step8: {
+            reactant: "Butyryl-ACP",
+            product: "Fatty acyl-ACP",
+            enzyme: "Fatty acid synthase (iterating steps 4-7)",
+            substrate: "Malonyl-ACP (for each iteration of steps 4-7)",
+            byproduct: "CO2, NADP+, H2O (for each iteration of steps 4-7)",
+            type: "Iterative synthesis",
+            reversible: false
+        },
+        step9: {
+            reactant: "Fatty acyl-ACP",
+            product: "Fatty acid",
+            enzyme: "Fatty acid synthase",
+            substrate: "H2O",
+            type: "Hydrolysis",
+            reversible: false
+        }
+    },
     gluconeogenesis: {
         name: "Gluconeogenesis",
         step1: {
