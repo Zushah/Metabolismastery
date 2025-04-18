@@ -29,6 +29,16 @@ const main = () => {
         button.addEventListener("click", renderStats);
     });
     elements.backToMenu.addEventListener("click", resetQuiz);
+    $("delete").addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete all your stats? This cannot be undone.")) {
+            stats = {
+                totalQuizzes: 0,
+                subjects: {}
+            };
+            localStorage.removeItem("stats");
+            displayStats();
+        }
+    });
     const originalRenderQuestion = renderQuestion;
     renderQuestion = () => {
         if (questionNumber >= totalQuestions) {

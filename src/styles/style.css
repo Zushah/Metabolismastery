@@ -245,6 +245,14 @@ input[type="range"]::-moz-range-thumb {
     background-color: #455A64;
 }
 
+#delete {
+    background-color: #7A2A00;
+}
+
+#delete:hover {
+    background-color: #5D1F00;
+}
+
 canvas#canvas {
     position: fixed;
     top: 0;
