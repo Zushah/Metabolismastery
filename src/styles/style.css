@@ -161,6 +161,12 @@ input[type="range"]::-moz-range-thumb {
     margin: 20px 0;
 }
 
+.main-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .subject-stat {
     background-color: #F5F5F5;
     border-radius: 8px;
@@ -169,21 +175,45 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: background-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .subject-stat:hover {
     background-color: #E9E9E9;
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.chevron-icon {
+    font-size: 48px;
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon.rotated {
+    transform: rotate(90deg);
+}
+
+.content-container {
+    flex-grow: 1;
+    width: calc(100% - 39px);
+}
+
 .subject-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .subject-name {
     font-weight: bold;
-    color: #00A3A0;
 }
 
 .subject-score {
@@ -195,17 +225,37 @@ input[type="range"]::-moz-range-thumb {
     overflow: hidden;
     transition: max-height 0.3s ease;
     margin-top: 10px;
+    width: 100%;
+    padding-left: 39px;
+    box-sizing: border-box;
 }
 
 .detail-container.expanded {
-    max-height: 500px;
+    max-height: 1000px;
     overflow-y: auto;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.detail-progress-container {
+    height: 5px;
+    margin-bottom: 8px;
+}
+
+.detail-progress-bar {
+    height: 100%;
 }
 
 .detail-item {
     display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
+    flex-direction: column;
+    padding: 8px 10px;
     border-top: 1px solid #E0E0E0;
 }
 
@@ -225,7 +275,19 @@ input[type="range"]::-moz-range-thumb {
     height: 100%;
     border-radius: 4px;
     background-color: #00A3A0;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.progress-bar-low {
+    background-color: #A31300;
+}
+
+.progress-bar-medium {
+    background-color: #A3A000;
+}
+
+.progress-bar-high {
+    background-color: #00A3A0;
 }
 
 .stats-button {

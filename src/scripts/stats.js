@@ -78,7 +78,7 @@ const displayStats = () => {
     const container = elements.masteryStats;
     container.innerHTML = "";
     if (Object.keys(stats.subjects).length === 0) {
-        container.innerHTML = "<p>No stats available yet. Complete some quizzes to develop your mastery!</p>";
+        container.innerHTML = "<p align='center'>No stats available yet. Complete some quizzes to develop your mastery!</p>";
         return;
     }
     const sortedSubjectKeys = getSortedSubjectKeys();
@@ -88,24 +88,40 @@ const displayStats = () => {
         const percentage = formatPercentage(subjectData.correct, subjectData.total);
         const subjectElement = document.createElement("div");
         subjectElement.classList.add("subject-stat");
+        const iconContainer = document.createElement("div");
+        iconContainer.classList.add("icon-container");
+        iconContainer.innerHTML = `<i class="material-icons chevron-icon">chevron_right</i>`;
+        const contentContainer = document.createElement("div");
+        contentContainer.classList.add("content-container");
         const headerElement = document.createElement("div");
         headerElement.classList.add("subject-header");
         headerElement.innerHTML = `
             <span class="subject-name">${subjectName}</span>
             <span class="subject-score">${subjectData.correct}/${subjectData.total} (${percentage})</span>
         `;
-        const detailContainer = document.createElement("div");
-        detailContainer.classList.add("detail-container");
+        const percentValue = subjectData.total === 0 ? 0 : Math.round((subjectData.correct / subjectData.total) * 100);
         const progressBarContainer = document.createElement("div");
         progressBarContainer.classList.add("progress-bar-container");
         const progressBar = document.createElement("div");
         progressBar.classList.add("progress-bar");
-        progressBar.style.width = percentage;
+        if (percentValue < 70) {
+            progressBar.classList.add("progress-bar-low");
+        } else if (percentValue < 90) {
+            progressBar.classList.add("progress-bar-medium");
+        } else {
+            progressBar.classList.add("progress-bar-high");
+        }
+        progressBar.style.width = percentValue === 0 ? "1%" : percentage;
         progressBarContainer.appendChild(progressBar);
+        contentContainer.appendChild(headerElement);
+        contentContainer.appendChild(progressBarContainer);
+        const detailContainer = document.createElement("div");
+        detailContainer.classList.add("detail-container");
         const sortedDetailKeys = getSortedDetailKeys(subjectKey, subjectData.details);
         for (const detailKey of sortedDetailKeys) {
             const detailData = subjectData.details[detailKey];
             const detailPercentage = formatPercentage(detailData.correct, detailData.total);
+            const percentValue = detailData.total === 0 ? 0 : Math.round((detailData.correct / detailData.total) * 100);
             let detailName = detailKey;
             if (subjectKey === "aminoAcids") {
                 detailName = data[subjectKey][detailKey]?.name || detailKey;
@@ -116,17 +132,39 @@ const displayStats = () => {
             }
             const detailElement = document.createElement("div");
             detailElement.classList.add("detail-item");
-            detailElement.innerHTML = `
+            const detailHeader = document.createElement("div");
+            detailHeader.classList.add("detail-header");
+            detailHeader.innerHTML = `
                 <span>${detailName}</span>
                 <span>${detailData.correct}/${detailData.total} (${detailPercentage})</span>
             `;
+            const detailProgressContainer = document.createElement("div");
+            detailProgressContainer.classList.add("progress-bar-container", "detail-progress-container");
+            const detailProgressBar = document.createElement("div");
+            detailProgressBar.classList.add("progress-bar", "detail-progress-bar");
+            if (percentValue < 70) {
+                detailProgressBar.classList.add("progress-bar-low");
+            } else if (percentValue < 90) {
+                detailProgressBar.classList.add("progress-bar-medium");
+            } else {
+                detailProgressBar.classList.add("progress-bar-high");
+            }
+            detailProgressBar.style.width = percentValue === 0 ? "1%" : detailPercentage;
+            detailProgressContainer.appendChild(detailProgressBar);
+            detailElement.appendChild(detailHeader);
+            detailElement.appendChild(detailProgressContainer);
             detailContainer.appendChild(detailElement);
         }
+        const mainRow = document.createElement("div");
+        mainRow.classList.add("main-row");
+        mainRow.appendChild(iconContainer);
+        mainRow.appendChild(contentContainer);
         subjectElement.addEventListener("click", () => {
             detailContainer.classList.toggle("expanded");
+            const icon = iconContainer.querySelector(".chevron-icon");
+            icon.classList.toggle("rotated");
         });
-        subjectElement.appendChild(headerElement);
-        subjectElement.appendChild(progressBarContainer);
+        subjectElement.appendChild(mainRow);
         subjectElement.appendChild(detailContainer);
         container.appendChild(subjectElement);
     }
