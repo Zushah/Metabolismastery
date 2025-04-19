@@ -56,6 +56,16 @@ const getSortedDetailKeys = (subjectKey, details) => {
             const nameB = data[subjectKey][b]?.name || b;
             return nameA.localeCompare(nameB);
         });
+    } else if (subjectKey === "pentosePhosphatePathway") {
+        return detailKeys.sort((a, b) => {
+            const isStepA = a.startsWith("step");
+            const isStepB = b.startsWith("step");
+            if (isStepA && !isStepB) return -1;
+            if (!isStepA && isStepB) return 1;
+            const numA = parseInt(a.replace(/\D/g, "")) || 0;
+            const numB = parseInt(b.replace(/\D/g, "")) || 0;
+            return numA - numB;
+        });
     } else {
         return detailKeys.sort((a, b) => {
             const numA = parseInt(a.replace(/\D/g, "")) || 0;
