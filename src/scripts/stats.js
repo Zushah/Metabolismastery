@@ -107,7 +107,7 @@ const displayStats = () => {
         headerElement.classList.add("subject-header");
         headerElement.innerHTML = `
             <span class="subject-name">${subjectName}</span>
-            <span class="subject-score">${subjectData.correct}/${subjectData.total} (${percentage})</span>
+            <span class="subject-score">${percentage} (${subjectData.correct}/${subjectData.total})</span>
         `;
         const percentValue = subjectData.total === 0 ? 0 : Math.round((subjectData.correct / subjectData.total) * 100);
         const progressBarContainer = document.createElement("div");
@@ -121,7 +121,7 @@ const displayStats = () => {
         } else {
             progressBar.classList.add("progress-bar-high");
         }
-        progressBar.style.width = percentValue === 0 ? "1%" : percentage;
+        progressBar.style.width = percentValue === 0 ? "2%" : percentage;
         progressBarContainer.appendChild(progressBar);
         contentContainer.appendChild(headerElement);
         contentContainer.appendChild(progressBarContainer);
@@ -142,12 +142,6 @@ const displayStats = () => {
             }
             const detailElement = document.createElement("div");
             detailElement.classList.add("detail-item");
-            const detailHeader = document.createElement("div");
-            detailHeader.classList.add("detail-header");
-            detailHeader.innerHTML = `
-                <span>${detailName}</span>
-                <span>${detailData.correct}/${detailData.total} (${detailPercentage})</span>
-            `;
             const detailProgressContainer = document.createElement("div");
             detailProgressContainer.classList.add("progress-bar-container", "detail-progress-container");
             const detailProgressBar = document.createElement("div");
@@ -159,10 +153,18 @@ const displayStats = () => {
             } else {
                 detailProgressBar.classList.add("progress-bar-high");
             }
-            detailProgressBar.style.width = percentValue === 0 ? "1%" : detailPercentage;
+            detailProgressBar.style.width = percentValue === 0 ? "2%" : detailPercentage;
             detailProgressContainer.appendChild(detailProgressBar);
+            const detailHeader = document.createElement("div");
+            detailHeader.classList.add("detail-header");
+            const nameSpan = document.createElement("span");
+            nameSpan.textContent = detailName;
+            const scoreSpan = document.createElement("span");
+            scoreSpan.textContent = `${detailPercentage} (${detailData.correct}/${detailData.total})`;
+            detailHeader.appendChild(nameSpan);
+            detailHeader.appendChild(detailProgressContainer);
+            detailHeader.appendChild(scoreSpan);
             detailElement.appendChild(detailHeader);
-            detailElement.appendChild(detailProgressContainer);
             detailContainer.appendChild(detailElement);
         }
         const mainRow = document.createElement("div");

@@ -236,16 +236,29 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .detail-header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
     align-items: center;
     width: 100%;
     margin-bottom: 5px;
 }
 
+.detail-header span:first-child {
+    text-align: left;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail-header span:last-child {
+    text-align: right;
+    padding-left: 5px;
+}
+
 .detail-progress-container {
     height: 5px;
-    margin-bottom: 8px;
+    margin: 0 5px;
 }
 
 .detail-progress-bar {
@@ -257,10 +270,6 @@ input[type="range"]::-moz-range-thumb {
     flex-direction: column;
     padding: 8px 10px;
     border-top: 1px solid #E0E0E0;
-}
-
-.detail-item:nth-child(odd) {
-    background-color: #F9F9F9;
 }
 
 .progress-bar-container {
