@@ -20,6 +20,23 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    position: relative;
+}
+
+.github-link {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+}
+
+.github-link svg {
+    fill: #009688;
+    transition: fill 0.3s ease;
+}
+
+.github-link:hover svg {
+    fill: #00796B;
 }
 
 h1 {
