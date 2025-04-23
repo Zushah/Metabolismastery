@@ -434,8 +434,8 @@ const data = {
             reactant: "Pyruvate",
             product: "Oxaloacetate",
             enzyme: "Pyruvate carboxylase",
-            substrate: "ATP",
-            byproduct: "ADP and CO2",
+            substrate: "ATP and CO2",
+            byproduct: "ADP",
             type: "Carboxylation",
             reversible: false
         },
@@ -450,34 +450,34 @@ const data = {
         },
         step3: {
             reactant: "Phosphoenolpyruvate",
-            product: "2-Phosphoglycerate",
+            product: "2-phosphoglycerate",
+            enzyme: "Enolase",
+            type: "Dehydration",
+            reversible: true
+        },
+        step4: {
+            reactant: "2-phosphoglycerate",
+            product: "3-phosphoglycerate",
             enzyme: "Phosphoglycerate mutase",
             type: "Phosphoryl shift",
             reversible: true
         },
-        step4: {
-            reactant: "2-Phosphoglycerate",
-            product: "3-Phosphoglycerate",
+        step5: {
+            reactant: "3-phosphoglycerate",
+            product: "1,3-bisphosphoglycerate",
             enzyme: "Phosphoglycerate kinase",
             substrate: "ATP",
             byproduct: "ADP",
             type: "Phosphoryl transfer",
             reversible: true
         },
-        step5: {
-            reactant: "3-Phosphoglycerate",
-            product: "1,3-Bisphosphoglycerate",
+        step6: {
+            reactant: "1,3-bisphosphoglycerate",
+            product: "Glyceraldehyde 3-phosphate",
             enzyme: "Glyceraldehyde 3-phosphate dehydrogenase",
             substrate: "NADH",
             byproduct: "NAD+",
-            type: "Oxidation",
-            reversible: true
-        },
-        step6: {
-            reactant: "1,3-Bisphosphoglycerate",
-            product: "Glyceraldehyde 3-phosphate",
-            enzyme: "Triose phosphate isomerase",
-            type: "Isomerization",
+            type: "Reduction",
             reversible: true
         },
         step7: {
@@ -490,7 +490,8 @@ const data = {
         step8: {
             reactant: "Fructose 1,6-bisphosphate",
             product: "Fructose 6-phosphate",
-            enzyme: "Fructose 1,6-bisphosphatase",
+            enzyme: "Fructose 1,6-bisphosphatase-1",
+            substrate: "H2O",
             type: "Hydrolysis",
             reversible: false
         },
@@ -505,6 +506,7 @@ const data = {
             reactant: "Glucose 6-phosphate",
             product: "Glucose",
             enzyme: "Glucose 6-phosphatase",
+            substrate: "H2O",
             type: "Hydrolysis",
             reversible: false
         }
@@ -634,7 +636,7 @@ const data = {
         },
         step6: {
             reactant: "Glyceraldehyde 3-phosphate",
-            product: "1,3-Bisphosphoglycerate",
+            product: "1,3-bisphosphoglycerate",
             enzyme: "Glyceraldehyde 3-phosphate dehydrogenase",
             substrate: "NAD+",
             byproduct: "NADH",
@@ -642,8 +644,8 @@ const data = {
             reversible: true
         },
         step7: {
-            reactant: "1,3-Bisphosphoglycerate",
-            product: "3-Phosphoglycerate",
+            reactant: "1,3-bisphosphoglycerate",
+            product: "3-phosphoglycerate",
             enzyme: "Phosphoglycerate kinase",
             substrate: "ADP",
             byproduct: "ATP",
@@ -651,14 +653,14 @@ const data = {
             reversible: true
         },
         step8: {
-            reactant: "3-Phosphoglycerate",
-            product: "2-Phosphoglycerate",
+            reactant: "3-phosphoglycerate",
+            product: "2-phosphoglycerate",
             enzyme: "Phosphoglycerate mutase",
             type: "Phosphoryl shift",
             reversible: true
         },
         step9: {
-            reactant: "2-Phosphoglycerate",
+            reactant: "2-phosphoglycerate",
             product: "Phosphoenolpyruvate",
             enzyme: "Enolase",
             byproduct: "H2O",
@@ -679,7 +681,7 @@ const data = {
         name: "Pentose Phosphate Pathway",
         step1: {
             reactant: "Glucose 6-phosphate",
-            product: "6-Phosphoglucono-δ-lactone",
+            product: "6-phosphoglucono-δ-lactone",
             enzyme: "Glucose 6-phosphate dehydrogenase",
             substrate: "NADP+",
             byproduct: "NADPH",
@@ -688,8 +690,8 @@ const data = {
             reversible: false
         },
         step2: {
-            reactant: "6-Phosphoglucono-δ-lactone",
-            product: "6-Phosphogluconate",
+            reactant: "6-phosphoglucono-δ-lactone",
+            product: "6-phosphogluconate",
             enzyme: "Lactonase",
             substrate: "H2O",
             type: "Hydrolysis",
@@ -697,9 +699,9 @@ const data = {
             reversible: true
         },
         step3: {
-            reactant: "6-Phosphogluconate",
+            reactant: "6-phosphogluconate",
             product: "Ribulose 5-phosphate",
-            enzyme: "6-Phosphogluconate dehydrogenase",
+            enzyme: "6-phosphogluconate dehydrogenase",
             substrate: "NADP+",
             byproduct: "NADPH and CO2",
             type: "Oxidation and decarboxylation",
@@ -726,7 +728,7 @@ const data = {
             reactant: "Ribose 5-phosphate and xylulose 5-phosphate",
             product: "Glyceraldehyde 3-phosphate and sedoheptulose 7-phosphate",
             enzyme: "Transketolase",
-            substrate: "Thiamine pyrophosphate (TPP)",
+            substrate: "Thiamine pyrophosphate",
             type: "Carbon transfer",
             oxidativePhase: false,
             reversible: true
