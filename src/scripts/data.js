@@ -15,7 +15,7 @@ const data = {
             name: "Arginine",
             three: "Arg",
             one: "R",
-            sideChain: "CH2-CH2-CH2-NH-C(=NH)-NH2",
+            sideChain: "CH2-CH2-CH2-NH-C(=NH)-NH3⁺",
             polar: true,
             hydrophobic: false,
             charged: true,
@@ -35,8 +35,8 @@ const data = {
             name: "Aspartate",
             three: "Asp",
             one: "D",
-            sideChain: "CH2-C(=O)-O",
-            polar: false,
+            sideChain: "CH2-C(=O)-O⁻",
+            polar: true,
             hydrophobic: false,
             charged: true,
             acidic: true
@@ -55,8 +55,8 @@ const data = {
             name: "Glutamate",
             three: "Glu",
             one: "E",
-            sideChain: "CH2-CH2-C(=O)-O",
-            polar: false,
+            sideChain: "CH2-CH2-C(=O)-O⁻",
+            polar: true,
             hydrophobic: false,
             charged: true,
             acidic: true
@@ -88,7 +88,7 @@ const data = {
             sideChain: "CH2-C3H3N2",
             polar: true,
             hydrophobic: false,
-            charged: true,
+            charged: false,
             acidic: false
         },
         isoleucine: {
@@ -115,8 +115,8 @@ const data = {
             name: "Lysine",
             three: "Lys",
             one: "K",
-            sideChain: "CH2-CH2-CH2-CH2-NH2",
-            polar: false,
+            sideChain: "CH2-CH2-CH2-CH2-NH3⁺",
+            polar: true,
             hydrophobic: false,
             charged: true,
             acidic: false
@@ -281,8 +281,8 @@ const data = {
             product: "Fatty acyl-CoA",
             enzyme: "Fatty acyl-CoA synthetase",
             substrate: "ATP",
-            byproduct: "AMP",
-            type: "Condensation",
+            byproduct: "AMP and PPi",
+            type: "Activation",
             reversible: false
         },
         step2: {
@@ -354,7 +354,7 @@ const data = {
             product: "Acetyl-CoA",
             enzyme: "ATP-citrate lyase",
             substrate: "ATP and CoA",
-            byproduct: "ADP and oxaloacetate",
+            byproduct: "ADP and Pi and oxaloacetate",
             type: "Phosphoryl cleavage",
             reversible: false
         },
@@ -435,7 +435,7 @@ const data = {
             product: "Oxaloacetate",
             enzyme: "Pyruvate carboxylase",
             substrate: "ATP and CO2",
-            byproduct: "ADP",
+            byproduct: "ADP and Pi",
             type: "Carboxylation",
             reversible: false
         },
@@ -452,7 +452,7 @@ const data = {
             reactant: "Phosphoenolpyruvate",
             product: "2-phosphoglycerate",
             enzyme: "Enolase",
-            type: "Dehydration",
+            type: "Hydration",
             reversible: true
         },
         step4: {
@@ -696,7 +696,7 @@ const data = {
             substrate: "H2O",
             type: "Hydrolysis",
             oxidativePhase: true,
-            reversible: true
+            reversible: false
         },
         step3: {
             reactant: "6-phosphogluconate",
@@ -786,12 +786,12 @@ const data = {
             product: "Carbamoyl phosphate",
             enzyme: "Carbamoyl phosphate synthetase I",
             substrate: "2 ATP",
-            byproduct: "2 ADP",
+            byproduct: "2 ADP and Pi",
             type: "Condensation",
             reversible: false
         },
         step2: {
-            reactant: "Orinthine and carbamoyl phosphate",
+            reactant: "Ornithine and carbamoyl phosphate",
             product: "Citrulline",
             enzyme: "Ornithine transcarbamoylase",
             byproduct: "Pi",
@@ -803,16 +803,15 @@ const data = {
             product: "Argininosuccinate",
             enzyme: "Argininosuccinate synthetase",
             substrate: "ATP",
-            byproduct: "AMP",
+            byproduct: "AMP and PPi",
             type: "Condensation",
-            reversible: true
+            reversible: false
         },
         step4: {
             reactant: "Argininosuccinate",
             product: "Arginine and fumarate",
             enzyme: "Argininosuccinate lyase",
-            substrate: "H2O",
-            type: "Hydrolysis",
+            type: "Cleavage",
             reversible: true
         },
         step5: {
@@ -821,7 +820,7 @@ const data = {
             enzyme: "Arginase",
             substrate: "H2O",
             type: "Hydrolysis",
-            reversible: true
+            reversible: false
         }
     }
 };
